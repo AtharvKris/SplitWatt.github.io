@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roommate Electricity Bill Calculator</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="java.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Roommate Electricity Bill Calculator</h1>
+        
+        <div class="section">
+            <h2>Basic Information</h2>
+            <div class="form-group">
+                <label for="totalBill">Total Electricity Bill (€):</label>
+                <input type="number" id="totalBill" placeholder="Enter total bill amount" step="0.01" min="0">
+            </div>
+            
+            <div class="form-group">
+                <label for="numRoommates">Number of Roommates:</label>
+                <select id="numRoommates" onchange="generateRoommateInputs()">
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            
+            <div class="info">
+                <p><strong>How the calculation works:</strong></p>
+                <ul>
+                    <li>Bath usage costs €1.50 per bath</li>
+                    <li>Heater usage costs €1.25 per use</li>
+                    <li>Remaining amount (for cooking, plugs, etc.) is divided equally among all roommates</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Roommate Details</h2>
+            <div id="roommateInputs" class="roommate-inputs">
+                <!-- Roommate input fields will be generated here -->
+            </div>
+        </div>
+        
+        <button onclick="calculateBill()">Calculate Split</button>
+        
+        <div id="results" class="results">
+            <div class="costs-summary" id="costsSummary">
+                <!-- Cost summary will be displayed here -->
+            </div>
+            
+            <div id="individualResults">
+                <!-- Individual results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
